@@ -1,1 +1,3 @@
 step,images,minutes,note
+gold_manual,4,22,"Gán tay 4 ảnh gold không AI (~5.5 phút/ảnh), vẽ kỹ tách người và xe"
+batch_review,24,75,"Duyệt có AI pre-label + 12 bẫy (~3.1 phút/ảnh), sửa box sót/thừa/lỏng"
