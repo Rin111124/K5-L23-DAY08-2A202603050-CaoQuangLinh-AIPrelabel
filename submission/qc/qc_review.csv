@@ -1,0 +1,7 @@
+﻿"image","object_id","error_type","reviewer","note"
+"img_003.jpg","","khong","ChatGPT (AI hỗ trợ)","Overlay không cho thấy lỗi nhãn rõ ràng; cần học viên xác nhận."
+"img_006.jpg","","khong","ChatGPT (AI hỗ trợ)","Cảnh xe đỗ rất dày; chưa thấy lỗi chắc chắn qua overlay, cần học viên xác nhận các xe chồng lấn."
+"img_014.jpg","","khong","ChatGPT (AI hỗ trợ)","Không thấy lỗi rõ ràng ở các vật thể lớn; vật thể xa nhỏ cần học viên xác nhận."
+"img_031.jpg","512","sai_vi_tri_kich_thuoc","ChatGPT (AI hỗ trợ)","Box gộp hai xe đạp chở hàng riêng biệt thành một; cần tách thành hai đối tượng."
+"img_035.jpg","608","sai_vi_tri_kich_thuoc","ChatGPT (AI hỗ trợ)","Box chỉ bao phần trên của xe ba bánh; cùng xe với box #609, cần một box bao toàn xe."
+"img_035.jpg","609","sai_vi_tri_kich_thuoc","ChatGPT (AI hỗ trợ)","Box chỉ bao phần dưới của xe ba bánh; cùng xe với box #608, cần một box bao toàn xe."

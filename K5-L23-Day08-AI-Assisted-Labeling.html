@@ -1786,12 +1786,14 @@
             rel="noopener">docs/setup_wizard.html</a> và dùng công cụ độc lập <a href="docs/day08_setup.py"
             target="_blank" rel="noopener">docs/day08_setup.py</a> (<code>download --profile 8gb|16gb</code>,
           <code>check [--light]</code>) để chuẩn bị trước lớp song song với <code>scripts/download_models.py</code> và
-          <code>scripts/check_env.py</code>.</p>
+          <code>scripts/check_env.py</code>.
+        </p>
         <ul class="plain">
           <li><strong>Local đủ RAM / GPU (<code>requirements.txt</code>):</strong> cài <code>requirements.txt</code>,
             tải <code>--set core</code> (<code>yolo26m.pt</code>, <code>yoloe-26s-seg.pt</code>,
             <code>sam2.1_b.pt</code>), rồi chạy <code>python scripts/check_env.py --cvat http://localhost:8080</code> để
-            nhận <code>SẴN SÀNG.</code>.</li>
+            nhận <code>SẴN SÀNG.</code>.
+          </li>
           <li><strong>Máy 8 GB RAM / chỉ CPU (local nhẹ):</strong> tải
             <code>python scripts/download_models.py --set small</code> (<code>yolo26n.pt</code>,
             <code>yoloe-26s-seg.pt</code>, <code>sam2.1_t.pt</code>) + <code>--set sam1</code>
@@ -1804,7 +1806,8 @@
             (<code>notebooks/day08_colab.ipynb</code>). Khi đó <code>check_env.py</code> báo thiếu
             <code>torch</code>/<code>ultralytics</code> là bình thường — chỉ cần thư viện nhẹ + CVAT đạt
             <code>PASS</code>, hoặc chạy <code>python docs/day08_setup.py check --light</code> ra
-            <code>SẴN SÀNG cho buổi học.</code>.</li>
+            <code>SẴN SÀNG cho buổi học.</code>.
+          </li>
         </ul>
         <div class="repo-card">
           <div class="repo-label">Repository nguồn</div>
@@ -1858,7 +1861,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
           <a href="docs/CVAT_AI.md" target="_blank" rel="noopener">docs/CVAT_AI.md</a> để tạo Project
           <code>day08-&lt;MSHV&gt;</code>. Trong tab <strong>Raw</strong>, dán toàn bộ
           <code>cvat/labels_generated.json</code>, bấm <strong>Save</strong> (hoặc <strong>Done</strong>), rà đủ 8 nhãn
-          ở tab <strong>Constructor</strong> rồi bấm <strong>Submit &amp; Open</strong>.</p>
+          ở tab <strong>Constructor</strong> rồi bấm <strong>Submit &amp; Open</strong>.
+        </p>
         <figure class="lab-figure"><img src="walkthrough_images/01_cvat_project_labels_saved.png"
             alt="Màn hình Create a new project trên CVAT hiển thị JSON nhãn đã dán vào tab Raw và nút Save"
             onclick="openLightbox(this)">
@@ -1916,9 +1920,11 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
           (<code>min_box_height_px = 20</code>); cụm người/xe quá nhỏ ở nền xa hoặc đám đông dính sát nhau không thể
           tách từng cá thể được gom bằng một box <code>ignore_region</code>. Khi gặp tình huống lưỡng lự giữa hai lớp
           hoặc vật bị che khuất nửa thân, bạn tự quyết định theo v1.0 rồi tick thuộc tính <code>can_review</code> thành
-          <code>true</code> ngay trên box đó.</p>
+          <code>true</code> ngay trên box đó.
+        </p>
         <h4 id="deep-cp1-thiet-ke" class="deep-h">Lựa chọn thiết kế: ghi lại thời gian thật và không mở
-          <code>work/prelabel/</code></h4>
+          <code>work/prelabel/</code>
+        </h4>
         <p>Trong <code>submission/time_log.csv</code>, dòng <code>gold_manual</code> đo trực tiếp tốc độ gán tay nguyên
           thủy (số phút thực tế chia 4 ảnh). Ở cuối Pha 4, bạn so sánh con số này với tốc độ duyệt lô có pre-label
           (<code>batch_review</code>, phút trên 24 ảnh), đồng thời lưu ý ảnh hưởng của việc đã quen cảnh phố châu Á sau
@@ -1928,7 +1934,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
           <div class="callout-body">
             <p>Không chạy <code>prelabel.py</code>, không bật AI Interactor trong CVAT và không tham khảo nhãn mẫu trên
               <code>data/cache/</code> trước khi hoàn tất export <code>submission/labels/gold_manual.json</code>. Tập
-              gold chỉ có giá trị kiểm định khi được tạo hoàn toàn bằng mắt và tay của bạn.</p>
+              gold chỉ có giá trị kiểm định khi được tạo hoàn toàn bằng mắt và tay của bạn.
+            </p>
           </div>
         </div>
         <h4 id="deep-cp1-cac-buoc" class="deep-h">Các bước thực hiện Pha 1</h4>
@@ -1936,7 +1943,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
           <li>Đọc kỹ <a href="guideline/guideline_v1.0_label_contract.md" target="_blank"
               rel="noopener">guideline/guideline_v1.0_label_contract.md</a>, đặc biệt quy tắc
             <code>ignore_region</code>, bao người lái <code>person</code> riêng với xe và cách phân biệt
-            <code>three_wheeler</code>.</li>
+            <code>three_wheeler</code>.
+          </li>
           <li>Trên Project CVAT vừa tạo ở Pha 0, tạo Task mới đặt tên <code>gold-manual</code> và tải lên đúng <strong>4
               ảnh</strong> trong <code>work/tasks/gold/</code>.</li>
           <li>Mở Job của <code>gold-manual</code>, dùng phím <code>N</code> (Rectangle) gán đầy đủ đối tượng cho cả 4
@@ -1953,7 +1961,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
         <ol class="deep-ol" start="4">
           <li>Vào <strong>Actions → Export task dataset</strong>, chọn định dạng <strong>COCO 1.0</strong>, <strong>tắt
               Save images</strong>, bấm <strong>OK</strong> rồi chuyển sang trang <strong>Requests</strong> để tải file
-            <code>.zip</code> khi tiến trình đạt 100%.</li>
+            <code>.zip</code> khi tiến trình đạt 100%.
+          </li>
         </ol>
         <figure class="lab-figure"><img src="walkthrough_images/03_cvat_export_coco_requests.png"
             alt="Trang Requests trên CVAT xác nhận hoàn tất Export Annotations định dạng COCO 1.0 cho Task #23 đạt 100%"
@@ -1964,7 +1973,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
         <ol class="deep-ol" start="5">
           <li>Trích file <code>annotations/instances_default.json</code> lưu đè thành
             <code>submission/labels/gold_manual.json</code>, rồi kiểm tra cấu trúc COCO, đủ 4 ảnh gold và chiều cao box
-            tối thiểu:</li>
+            tối thiểu:
+          </li>
         </ol>
         <div class="code-tabs">
           <div class="code-tabs-bar"><span class="code-tabs-title">Kiểm tra file gold_manual.json sau khi export từ
@@ -1993,7 +2003,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
           <code>[submission\labels\gold_manual.json] 4 ảnh, &lt;số đối tượng&gt;: OK</code> (kiểm chứng thực tế đạt
           <code>62</code> đối tượng, không lỗi schema hay lớp lạ; mọi cảnh báo chiều cao <code>&lt; 20 px</code> được rà
           lại để chuyển sang <code>ignore_region</code> nếu quá nhỏ). Khi <code>gold_manual.json</code> đã khóa, bạn
-          chính thức mở khóa bước dùng mô hình AI ở Pha 2.</p>
+          chính thức mở khóa bước dùng mô hình AI ở Pha 2.
+        </p>
       </div>
 
       <div class="deep-panel" data-deep-id="cp2">
@@ -2006,7 +2017,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
           prompt chữ <code>--classes three_wheeler</code>) tìm được tuk-tuk nhưng box sinh ra thường lỏng hơn, dễ trùng
           hai box chồng nhau hoặc gộp nhầm xe đẩy hàng rong. Cuối cùng, <strong>SAM</strong> (<code>sam2.1_b.pt</code>,
           <code>sam2.1_t.pt</code>, <code>mobile_sam.pt</code> hoặc SAM 3) biến bounding box hoặc điểm click thành
-          polygon/mask bám sát biên vật thể, đánh đổi thời gian xử lý lâu hơn đáng kể trên CPU.</p>
+          polygon/mask bám sát biên vật thể, đánh đổi thời gian xử lý lâu hơn đáng kể trên CPU.
+        </p>
         <figure class="lab-figure"><img src="docs/assets/model_families.png"
             alt="So sánh ba họ model pre-label gồm detector đóng YOLO26, open-vocabulary YOLOE và segmenter SAM"
             onclick="openLightbox(this)">
@@ -2019,7 +2031,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
           <code>prelabel.py</code> đều tự động lưu JSON kết quả (<code>pre.coco.json</code>), ảnh trong
           <code>viz/</code> và log vào <code>work/runs.csv</code>. Trên Windows PowerShell, bắt buộc bọc ngoặc kép quanh
           tham số chứa dấu phẩy (<code>--classes "person,motorbike,car"</code>) để PowerShell không tách chuỗi thành
-          mảng đối số.</p>
+          mảng đối số.
+        </p>
         <h4 id="deep-cp2-thiet-ke" class="deep-h">Lựa chọn thiết kế: tách cache theo lượt chạy và ghi log trung thực
         </h4>
         <p>Bạn giữ riêng từng thư mục (<code>t_y26</code>, <code>t_y26_c05</code>, <code>t_yoloe</code>,
@@ -2030,7 +2043,8 @@ python scripts/prepare_workdirs.py</pre><button type="button" onclick="copyPre(t
           chọn <code>--imgsz 640</code>) và <code>--sam sam2.1_b.pt</code> → <code>sam2.1_t.pt</code> hoặc
           <code>mobile_sam.pt</code> (~0.4–4s/ảnh), hoặc chạy <a href="docs/COLAB.md" target="_blank"
             rel="noopener">Google Colab</a> (<code>notebooks/day08_colab.ipynb</code>) và tải kết quả về giải nén vào
-          <code>work/prelabel/</code>.</p>
+          <code>work/prelabel/</code>.
+        </p>
         <h4 id="deep-cp2-cac-buoc" class="deep-h">Các bước thực hiện Pha 2</h4>
         <ol class="deep-ol">
           <li>Chạy thử nghiệm 4 lượt model trên tập <code>pilot</code> (8 ảnh) và hai ảnh thử SAM (lưu ý dấu ngoặc kép
@@ -2098,14 +2112,16 @@ python scripts/prelabel.py --model yolo26 --size m --classes "person,motorbike,c
           <code>person</code> cần ngưỡng mềm hơn để giữ recall, trong khi <code>motorbike</code> đông đúc dễ phát sinh
           nhiều box giả nếu ngưỡng quá thấp. Bằng cách chạy inference toàn tập một lần ở <code>--conf 0.05</code>
           (<code>--no-viz</code>), bạn lưu toàn bộ ứng viên rồi dùng <code>threshold_sweep.py</code> quét 19 mức ngưỡng
-          trên gold chỉ trong vài giây.</p>
+          trên gold chỉ trong vài giây.
+        </p>
         <h4 id="deep-cp3-giai-nghia" class="deep-h">Giải nghĩa ngưỡng mục tiêu 90% recall và bẫy mẫu nhỏ</h4>
         <p>Script <code>threshold_sweep.py</code> chọn ngưỡng tin cậy <strong>cao nhất</strong> giữ được recall trên 4
           ảnh gold tối thiểu <code>90%</code> (<code>recall_target = 0.9</code>). Lớp nào có dưới 5 vật trong gold (ví
           dụ kiểm chứng chỉ có 4 <code>bicycle</code>, 1 <code>bus</code>, 1 <code>truck</code>, 4
           <code>three_wheeler</code>) sẽ được giữ ở ngưỡng <strong>mặc định (<code>0.3</code>)</strong>. Đặc biệt, số đo
           trong <code>threshold_sweep.md</code> luôn là kết quả <strong>in-sample</strong> trên chính 4 ảnh gold nên
-          mang tính lạc quan.</p>
+          mang tính lạc quan.
+        </p>
         <h4 id="deep-cp3-thiet-ke" class="deep-h">Lựa chọn thiết kế: nạp cả hai nguồn ứng viên qua <code>--pred</code>
         </h4>
         <p>Bạn xuất <code>work/prelabel/y26_all/pre.coco.json</code> (<code>1.669</code> box trong thử nghiệm thực tế)
@@ -2113,11 +2129,13 @@ python scripts/prelabel.py --model yolo26 --size m --classes "person,motorbike,c
           <code>threshold_sweep.py --pred ...</code> để tổng hợp bảng ngưỡng theo lớp và lấy chuỗi
           <code>--thr "..."</code> cho Pha 4. Máy 8 GB RAM / CPU thay <code>--size m</code> → <code>--size n</code> khớp
           trọng số <code>--set small</code> (hoặc dùng <code>data/cache/</code> nếu máy/mạng quá yếu và ghi rõ vào
-          <code>REPORT.md</code>).</p>
+          <code>REPORT.md</code>).
+        </p>
         <h4 id="deep-cp3-cac-buoc" class="deep-h">Các bước thực hiện Pha 3</h4>
         <ol class="deep-ol">
           <li>Chạy hai lượt cache ở ngưỡng <code>0.05</code> rồi quét ngưỡng qua <code>--pred</code> đối chiếu với
-            <code>submission/labels/gold_manual.json</code>:</li>
+            <code>submission/labels/gold_manual.json</code>:
+          </li>
         </ol>
         <div class="code-tabs">
           <div class="code-tabs-bar"><span class="code-tabs-title">Cache ứng viên conf 0.05 và quét ngưỡng theo lớp trên
@@ -2160,7 +2178,8 @@ python scripts/threshold_sweep.py --pred work/prelabel/y26_all/pre.coco.json wor
           <div class="callout-body">
             <p>Đọc kỹ cảnh báo mẫu nhỏ trong <code>threshold_sweep.md</code> để đưa vào mục 1 của
               <code>REPORT.md</code>. Không ép ngưỡng cao cho các lớp chỉ có 1–4 mẫu trong gold như
-              <code>bicycle</code>, <code>bus</code>, <code>truck</code> hay <code>three_wheeler</code>.</p>
+              <code>bicycle</code>, <code>bus</code>, <code>truck</code> hay <code>three_wheeler</code>.
+            </p>
           </div>
         </div>
         <h4 id="deep-cp3-checkpoint" class="deep-h">Checkpoint Pha 3 và bước tiếp theo</h4>
@@ -2183,21 +2202,25 @@ python scripts/threshold_sweep.py --pred work/prelabel/y26_all/pre.coco.json wor
           <code>inject_traps.py</code> dùng MSHV làm hạt giống ngẫu nhiên cấy <strong>12 lỗi nhân tạo</strong> (3
           <code>wrong_class</code>, 3 <code>loose</code>, 3 <code>extra</code>, 3 <code>missing</code>) vào lô 24 ảnh
           batch, rồi <code>review_stats.py</code> kiểm tra tỉ lệ bắt bẫy (<code>trap_catch_min = 80%</code>, tối thiểu
-          <code>10/12</code>).</p>
+          <code>10/12</code>).
+        </p>
         <h4 id="deep-cp4-giai-nghia" class="deep-h">Giải nghĩa <code>pre_traps.coco.json</code> vs
-          <code>pre_traps_import.coco.json</code> và bẫy số 0 đầu trên Windows</h4>
+          <code>pre_traps_import.coco.json</code> và bẫy số 0 đầu trên Windows
+        </h4>
         <p>Lệnh <code>inject_traps.py</code> tạo hai file: <code>pre_traps.coco.json</code> (đủ 28 ảnh
           <code>batch + gold</code> cùng điểm tin cậy để chạy thống kê) và <code>pre_traps_import.coco.json</code> (chỉ
           <strong>24 ảnh batch</strong> sạch để nạp lên Task <code>batch-review</code> trên CVAT). Khi tải lên CVAT
           <strong>chỉ chọn <code>pre_traps_import.coco.json</code></strong>. Trên Windows PowerShell, luôn bọc
           <code>--student "00123456"</code> và <code>--thr "..."</code> trong ngoặc kép để giữ nguyên số <code>0</code>
-          đầu và dấu phẩy.</p>
+          đầu và dấu phẩy.
+        </p>
         <h4 id="deep-cp4-thiet-ke" class="deep-h">Lựa chọn thiết kế: quy trình duyệt 4 bước chống nhìn gợi ý trước</h4>
         <p>Trên từng bức ảnh, hãy thực hiện đủ 4 bước: (1) quét toàn ảnh theo chiều trái-phải đếm số vật <strong>trước
             khi</strong> tin vào box màu; (2) thêm box sót (<code>N</code>) hoặc xóa box ma (<code>Del</code>); (3) soi
           nhãn và kiểm 4 cạnh viền từng box để sửa sai lớp, kéo sát box bị hở nền (<code>loose</code>) và xóa box
           <code>three_wheeler</code> trùng lặp của YOLOE; (4) dùng nút <strong>Filters</strong> trên thanh công cụ để rà
-          riêng từng lớp hoặc gắn cờ <code>can_review</code> cho ca khó.</p>
+          riêng từng lớp hoặc gắn cờ <code>can_review</code> cho ca khó.
+        </p>
         <figure class="lab-figure"><img src="docs/assets/review_checklist.png"
             alt="Sơ đồ 4 bước checklist duyệt nhãn chống automation bias gồm quét ảnh trước, sửa thiếu-thừa, chỉnh lớp và kiểm viền 4 cạnh"
             onclick="openLightbox(this)">
@@ -2209,7 +2232,8 @@ python scripts/threshold_sweep.py --pred work/prelabel/y26_all/pre.coco.json wor
           <li>Gộp pre-label (đặt <code>yoloe_all</code> đứng trước để ưu tiên <code>three_wheeler</code> thắng
             <code>car/truck</code> của <code>y26_all</code> tại IoU &gt;= 0.6), xuất ra
             <code>work/prelabel/merged_review/pre.coco.json</code> rồi cài 12 bẫy bằng đúng MSHV của bạn (thay
-            <code>00123456</code> bằng MSHV của bạn, giữ nguyên ngoặc kép):</li>
+            <code>00123456</code> bằng MSHV của bạn, giữ nguyên ngoặc kép):
+          </li>
         </ol>
         <div class="code-tabs">
           <div class="code-tabs-bar"><span class="code-tabs-title">Gộp pre-label theo ngưỡng từng lớp và tiêm 12 ảnh bẫy
@@ -2237,11 +2261,13 @@ python scripts/inject_traps.py --pre work/prelabel/merged_review/pre.coco.json -
         </div>
         <ol class="deep-ol" start="2">
           <li>Trên Project CVAT đã có ở Pha 0, tạo Task mới đặt tên <code>batch-review</code> và tải lên toàn bộ
-            <strong>24 ảnh</strong> trong <code>work/tasks/review/</code>.</li>
+            <strong>24 ảnh</strong> trong <code>work/tasks/review/</code>.
+          </li>
           <li>Vào <strong>Actions → Upload annotations</strong> trên Task <code>batch-review</code>, chọn <strong>Import
               format: COCO 1.0</strong>, chọn tệp <code>submission/prelabel/pre_traps_import.coco.json</code>, giữ
             <strong>Import mode: Replace</strong> (hoặc chuyển <strong>Append</strong> nếu muốn giữ nhãn cũ) rồi bấm
-            <strong>OK</strong>.</li>
+            <strong>OK</strong>.
+          </li>
         </ol>
         <div class="callout callout-danger">
           <div class="callout-title">Lưu ý quan trọng trên CVAT 2.74.1 sau khi bấm OK</div>
@@ -2262,7 +2288,8 @@ python scripts/inject_traps.py --pre work/prelabel/merged_review/pre.coco.json -
           <li>Mở Job của <code>batch-review</code>, duyệt đủ 24 ảnh theo checklist 4 bước, dùng nút
             <strong>Filters</strong> để rà theo lớp và tick <code>can_review</code> trong bảng <strong>Objects</strong>
             cho ca biên. Nhớ <code>Ctrl+S</code> thường xuyên và ghi thời gian duyệt vào <code>batch_review</code> của
-            <code>submission/time_log.csv</code>.</li>
+            <code>submission/time_log.csv</code>.
+          </li>
         </ol>
         <figure class="lab-figure"><img src="walkthrough_images/08_cvat_batch_review_job_ui.png"
             alt="Màn hình Job review 24 ảnh trong CVAT hiển thị ảnh img_013.jpg với nhãn three_wheeler, thuộc tính conf=0.63, can_review và nút Filters trên thanh công cụ"
@@ -2274,7 +2301,8 @@ python scripts/inject_traps.py --pre work/prelabel/merged_review/pre.coco.json -
           <li>Export <strong>COCO 1.0</strong> (tắt Save images), giải nén
             <code>annotations/instances_default.json</code> lưu thành
             <code>submission/labels/batch_reviewed.json</code>, rồi chạy kiểm định nhãn và tính thống kê review với đầy
-            đủ <code>--pre</code>, <code>--final</code>, <code>--gold</code>, <code>--key</code>:</li>
+            đủ <code>--pre</code>, <code>--final</code>, <code>--gold</code>, <code>--key</code>:
+          </li>
         </ol>
         <div class="code-tabs">
           <div class="code-tabs-bar"><span class="code-tabs-title">Kiểm tra nhãn batch sau duyệt và tính AI error
@@ -2304,7 +2332,8 @@ python scripts/review_stats.py --pre submission/prelabel/pre_traps.coco.json --f
         <p><code>validate_labels.py --all</code> báo <code>OK</code> cho cả 4 ảnh gold và 24 ảnh batch;
           <code>submission/qc/review_stats.md</code> hiển thị bảng 4 trạng thái, Precision/Recall so với gold và tỉ lệ
           bắt bẫy <strong>&gt;= 80%</strong> (kiểm chứng thực tế đạt <code>11/12 = 91.7%</code>). Tiếp theo, sang Pha 5
-          để tách mask SAM cho 3 vật khó.</p>
+          để tách mask SAM cho 3 vật khó.
+        </p>
       </div>
 
       <div class="deep-panel" data-deep-id="cp5">
@@ -2320,7 +2349,8 @@ python scripts/review_stats.py --pre submission/prelabel/pre_traps.coco.json --f
           <code>--box "x1,y1,x2,y2"</code>. Theo <strong>mục 4.2</strong> của
           <code>guideline_v1.0_label_contract.md</code>, mask của phương tiện như <code>three_wheeler</code> chỉ ôm
           khung xe, mái che và bánh xe; người lái (<code>person</code>) và hàng hóa nhô ngoài phải được tách bằng điểm
-          <code>--neg</code>.</p>
+          <code>--neg</code>.
+        </p>
         <h4 id="deep-cp5-thiet-ke" class="deep-h">Lựa chọn thiết kế: so sánh trực tiếp SAM 2.1 vs MobileSAM trên cùng
           một xe</h4>
         <p>Chạy thử cả <code>sam2.1_b.pt</code> và <code>mobile_sam.pt</code> trên cùng tọa độ click của một chiếc
@@ -2332,7 +2362,8 @@ python scripts/review_stats.py --pre submission/prelabel/pre_traps.coco.json --f
             <code>img_017.jpg</code>), mở ảnh xem tọa độ pixel rồi chạy <code>sam2_points.py</code>: truyền
             <code>--image &lt;tên_ảnh&gt;</code> (script tự đọc trong <code>data/images/</code>), lặp lại cờ
             <code>--pos "x,y"</code> / <code>--neg "x,y"</code> (bọc ngoặc kép trên PowerShell), và đặt
-            <code>--out submission/masks --name &lt;tên_file&gt;</code>.</li>
+            <code>--out submission/masks --name &lt;tên_file&gt;</code>.
+          </li>
         </ol>
         <div class="code-tabs">
           <div class="code-tabs-bar"><span class="code-tabs-title">Tách mask 3 đối tượng khó bằng SAM 2.1 và đối chiếu
@@ -2387,7 +2418,8 @@ python scripts/sam2_points.py --image img_017.jpg --pos "560,420" --pos "680,500
           hộp <code>three_wheeler</code> chồng đè mà YOLOE sinh ra. Quy trình QC cuối lô rút ra tối đa <strong>3 ảnh
             <code>can_review</code> + 5 ảnh ngẫu nhiên (<code>--seed 42</code>)</strong> từ 24 ảnh batch để soi theo ID
           từng box, đối chiếu ngưỡng <code>error_rate_img_max = 2%</code> và biến mọi vướng mắc thành quy tắc mới trong
-          <code>guideline_v1.1_calibrated.md</code>.</p>
+          <code>guideline_v1.1_calibrated.md</code>.
+        </p>
         <h4 id="deep-cp6-giai-nghia" class="deep-h">Giải nghĩa cây quyết định Hold → Rework → Release và giới hạn Wilson
           95%</h4>
         <p>Đọc <code>submission/qc/qc_report_auto.md</code> theo thứ tự <strong>Hold → Rework → Release</strong>: chọn
@@ -2396,7 +2428,8 @@ python scripts/sam2_points.py --image img_017.jpg --pos "560,420" --pos "680,500
           <code>&gt; 2%</code>, có lỗi hệ thống, bắt bẫy <code>&lt; 80%</code> hoặc tự kiểm không đạt; chỉ chọn
           <strong>Release</strong> khi sạch cả hai. Ngay cả khi 0/7 ảnh lỗi, cận trên 95% (Wilson) của tỉ lệ lỗi thật
           vẫn là <strong>35%</strong> (với 4/7 ảnh lỗi ở mẫu E2E thực tế, cận trên lên tới <strong>84%</strong>) — phải
-          nêu rõ giới hạn mẫu nhỏ này trong <code>REPORT.md</code>.</p>
+          nêu rõ giới hạn mẫu nhỏ này trong <code>REPORT.md</code>.
+        </p>
         <figure class="lab-figure"><img src="docs/assets/decision_tree.png"
             alt="Cây quyết định QC theo thứ tự kiểm Hold, Rework và Release" onclick="openLightbox(this)">
           <figcaption>Cây quyết định Hold → Rework → Release đi kèm báo cáo tự động qc_report_auto.md và luận giải tại
@@ -2409,7 +2442,8 @@ python scripts/sam2_points.py --image img_017.jpg --pos "560,420" --pos "680,500
           (<code>khong</code>, <code>bo_sot</code>, <code>thua</code>, <code>sai_lop</code>,
           <code>sai_vi_tri_kich_thuoc</code>, <code>sai_thuoc_tinh</code>, <code>sai_mask</code>). Nếu quyết định là
           <strong>Rework</strong>, viết rõ danh sách cần sửa (hoặc sửa lại trên CVAT xuất thành
-          <code>submission/labels/qc_fixed.json</code> rồi chạy lại <code>build_release.py</code>).</p>
+          <code>submission/labels/qc_fixed.json</code> rồi chạy lại <code>build_release.py</code>).
+        </p>
         <h4 id="deep-cp6-cac-buoc" class="deep-h">Các bước thực hiện Pha 6</h4>
         <ol class="deep-ol">
           <li>Tạo gói release candidate và rút mẫu kiểm QC 5 ảnh ngẫu nhiên kèm ca <code>can_review</code>:</li>
@@ -2460,14 +2494,16 @@ python scripts/qc_sample.py --n 5 --seed 42</pre><button type="button" onclick="
             <p>Bảo đảm không còn ký hiệu <code>&lt;&lt;</code> chưa điền trong <code>README.md</code>,
               <code>STUDENT.md</code>, <code>submission/REPORT.md</code> và
               <code>submission/guidelines/guideline_v1.1_calibrated.md</code>; các file CSV đều mã hóa UTF-8 và khớp số
-              liệu với <code>submission/qc/</code>.</p>
+              liệu với <code>submission/qc/</code>.
+            </p>
           </div>
         </div>
         <h4 id="deep-cp6-checkpoint" class="deep-h">Checkpoint Pha 6 và bước tiếp theo</h4>
         <p>Pha 6 hoàn tất khi có đủ <code>submission/release/final_det.coco.json</code> +
           <code>release_manifest.json</code>, <code>qc_report_auto.md</code>, <code>guideline_v1.1_calibrated.md</code>,
           <code>calibration_decisions.csv</code> và <code>REPORT.md</code> trọn vẹn cả 8 mục. Chặng cuối là rà lỗi tự
-          động và nộp bài.</p>
+          động và nộp bài.
+        </p>
       </div>
 
       <div class="deep-panel" data-deep-id="submit">
@@ -2564,16 +2600,19 @@ git status</pre><button type="button" onclick="copyPre(this)">Copy</button>
           <li><b>Gán tay 4 ảnh gold trước:</b> Hoàn tất <code>gold_manual.json</code> hoàn toàn không AI trước khi chạy
             bất kỳ model pre-label nào.</li>
           <li><b>Giữ nguyên <code>models/</code> ngoài Git:</b> Trọng số <code>.pt/.onnx/.ts</code> tải vào
-            <code>models/</code> được <code>.gitignore</code> chặn sẵn, không ép commit.</li>
+            <code>models/</code> được <code>.gitignore</code> chặn sẵn, không ép commit.
+          </li>
           <li><b>Bọc ngoặc kép trên PowerShell:</b> Luôn viết <code>--student "00123456"</code>,
             <code>--classes "person,motorbike,car"</code>, <code>--thr "person=0.35,car=0.35"</code>,
-            <code>--pos "400,480"</code> để tránh mất số 0 đầu hoặc tách dấu phẩy.</li>
+            <code>--pos "400,480"</code> để tránh mất số 0 đầu hoặc tách dấu phẩy.
+          </li>
           <li><b>Chọn đúng file nạp CVAT:</b> Dùng <code>pre_traps_import.coco.json</code> cho Upload annotations; khi ở
             chế độ <code>Replace</code> nhớ bấm thêm <b>Replace annotations</b>.</li>
           <li><b>Trung thực với số đo:</b> Hold/Rework có dẫn chứng <code>CAL-xx</code> và Wilson 95% CI đúng mẫu số vẫn
             đạt điểm cao hơn Release giả tạo.</li>
           <li><b>Nộp public + LMS:</b> Fork public tên <code>K5-L23-DAY08-[MSHV]-[HoTen]-AIPrelabel</code> kèm link trên
-            <code>aithucchien.vinuni.edu.vn</code>.</li>
+            <code>aithucchien.vinuni.edu.vn</code>.
+          </li>
         </ul>
         <p class="kbd-hint" style="margin:12px 0 0;font-size:12.5px;color:var(--muted)">
           Phím tắt: <span class="kbd">Space</span> chạy/dừng · <span class="kbd">←</span><span class="kbd">→</span> pha
@@ -2588,30 +2627,35 @@ git status</pre><button type="button" onclick="copyPre(this)">Copy</button>
           <tr>
             <td>CVAT báo lỗi khi dán JSON vào <code>Raw</code></td>
             <td>Chạy lại <code>python scripts/make_cvat_labels.py</code> lấy bản mới nhất (mọi thuộc tính có mảng
-              <code>values</code> không rỗng), dán vào <b>Raw</b> → <b>Save</b> → <b>Submit &amp; Open</b>.</td>
+              <code>values</code> không rỗng), dán vào <b>Raw</b> → <b>Save</b> → <b>Submit &amp; Open</b>.
+            </td>
           </tr>
           <tr>
             <td>Import xong<br><code>pre_traps_import.coco.json</code><br>mà Job vẫn 0 shape</td>
             <td>Khi <code>Import mode</code> đang để <b>Replace</b>, sau khi bấm <b>OK</b> phải bấm tiếp nút xác nhận
-              <b>Replace annotations</b> ở hộp thoại thứ hai.</td>
+              <b>Replace annotations</b> ở hộp thoại thứ hai.
+            </td>
           </tr>
           <tr>
             <td><code>inject_traps</code> báo mismatch MSHV hoặc PowerShell cắt số <code>0</code> đầu</td>
             <td>Luôn bọc ngoặc kép <code>--student "00123456"</code> khớp từng ký tự với dòng đầu
               <code>README.md</code>; truyền <code>--pre work/prelabel/merged_review/pre.coco.json</code> và không dùng
-              <code>pre_traps.coco.json</code> để upload lên CVAT.</td>
+              <code>pre_traps.coco.json</code> để upload lên CVAT.
+            </td>
           </tr>
           <tr>
             <td><code>merge_prelabels</code> / <code>sam2_points</code> báo sai tham số hoặc không tìm thấy ảnh</td>
             <td>Bọc ngoặc kép quanh chuỗi có dấu phẩy (<code>--thr "person=0.35,car=0.35"</code>); với
               <code>sam2_points.py</code> chỉ truyền tên ảnh (<code>--image img_013.jpg</code>), lặp lại từng cờ
               <code>--pos "400,480" --pos "600,110"</code> và truyền thư mục qua
-              <code>--out submission/masks --name ...</code>.</td>
+              <code>--out submission/masks --name ...</code>.
+            </td>
           </tr>
           <tr>
             <td><code>check_submission</code> báo commit <code>models/</code></td>
             <td>Kiểm <code>git status</code>, chạy <code>git rm --cached models/*.pt</code> (giữ
-              <code>models/.gitkeep</code>) và kiểm tra lại với <code>python scripts/check_submission.py</code>.</td>
+              <code>models/.gitkeep</code>) và kiểm tra lại với <code>python scripts/check_submission.py</code>.
+            </td>
           </tr>
         </table>
       </div>

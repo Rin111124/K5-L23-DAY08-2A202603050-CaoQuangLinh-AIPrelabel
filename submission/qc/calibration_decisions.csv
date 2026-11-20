@@ -1,1 +1,4 @@
 case_id,image,nguon,van_de,quyet_dinh,quy_tac_ghi_vao_guideline,phien_ban_guideline
+CAL-01,img_018.jpg,cau_hoi_mo,"Q2: cụm xe máy đỗ dày gần camera, ranh giới khó tách","Gán riêng khi nhận ra thân hoặc bánh từng xe; ignore_region nếu cụm >=5 xe và không thể tách cá thể","Mục 4.1.6: tiêu chí tách được từng xe",v1.1
+CAL-02,img_013.jpg,loi_may,"YOLO26 gọi tuk-tuk là car; SAM tạo mask theo box nhưng không đổi lớp","Đổi lớp thành three_wheeler; person nhìn thấy gán riêng","Mục 2 và 4.2: xác minh lớp trước khi chấp nhận mask",v1.1
+CAL-03,img_026.jpg,bay_lot,"Box motorbike lỏng trên xe mờ dễ lọt khi chỉ nhìn nhanh","Phóng to, siết box theo phần xe nhìn thấy; không chấp nhận chỉ vì confidence","Mục 4.1.1 và checklist bước 4",v1.1
